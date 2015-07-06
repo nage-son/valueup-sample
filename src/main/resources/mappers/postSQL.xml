@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.test.valueup.dao.PostDao">
+    <resultMap id="listResultMap" type="com.test.valueup.dto.Post">
+        <result property="id" column="id" />
+        <result property="title" column="title" />
+        <result property="createdAt" column="created_at" />
+    </resultMap>
+    <resultMap id="defaultResultMap" type="com.test.valueup.dto.Post" extends="listResultMap">
+        <result property="content" column="content" />
+        <result property="updatedAt" column="updated_at" />
+    </resultMap>
+    <select id="getPostList" resultMap="listResultMap">
+        select id,
+               title
+        from   post
+        order by id desc
+    </select>
+
+    <insert id="insertPost" parameterType="com.test.valueup.dto.Post">
+        insert into post (
+            title,
+            content,
+            created_at
+        ) values (
+            #{title},
+            #{content},
+            now()
+        )
+    </insert>
+
+    <select id="getPost" resultMap="defaultResultMap" parameterType="java.lang.Long">
+        select id,
+               title,
+               content,
+               created_at,
+               updated_at
+        from   post
+        where  id = #{id}
+    </select>
+</mapper>
