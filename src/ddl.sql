@@ -1,5 +1,7 @@
 create database valueup_test CHARACTER SET utf8 COLLATE utf8_general_ci;
 
+use valueup_test;
+
 CREATE TABLE `post` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '시퀀스',
   `title` varchar(200) NOT NULL DEFAULT '' COMMENT '제목',
