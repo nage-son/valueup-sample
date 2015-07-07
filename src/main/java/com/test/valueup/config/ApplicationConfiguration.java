@@ -38,7 +38,8 @@ public class ApplicationConfiguration {
 
         dataSource.setDriverClassName("com.mysql.jdbc.Driver");
         dataSource.setUrl("jdbc:mysql://localhost:3306/valueup_test?autoReconnect=true&characterEncoding=utf8");
-        dataSource.setUsername("root");
+        dataSource.setUsername("valueup");
+        dataSource.setPassword("1111");
         dataSource.setDefaultAutoCommit(false);
 
         return dataSource;
