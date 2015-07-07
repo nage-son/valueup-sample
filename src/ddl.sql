@@ -1,5 +1,7 @@
 create database valueup_test CHARACTER SET utf8 COLLATE utf8_general_ci;
 
+grant all privileges on valueup_test.* to valueup@localhost identified by '1111' with grant option;
+
 use valueup_test;
 
 CREATE TABLE `post` (
