@@ -43,4 +43,11 @@ public interface PostDao {
      * @param post post
      */
     void insertPost(Post post);
+
+    /**
+     * Update post
+     *
+     * @param post post
+     */
+    void updatePost(Post post);
 }

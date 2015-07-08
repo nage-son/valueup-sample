@@ -10,6 +10,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.test.valueup.dao.PostDao;
 import com.test.valueup.dto.Post;
@@ -28,5 +29,18 @@ public class PostManager {
 
     public List<Post> getPostList() {
         return dao.getPostList();
+    }
+
+    @Transactional
+    public void savePost(Post post) {
+        if (post.getId() == null) {
+        	dao.insertPost(post);
+        } else {
+            dao.updatePost(post);
+        }
+    }
+
+    public Post getPost(Long id) {
+        return dao.getPost(id);
     }
 }

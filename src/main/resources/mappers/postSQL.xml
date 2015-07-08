@@ -38,4 +38,12 @@
         from   post
         where  id = #{id}
     </select>
+
+    <update id="updatePost">
+        update post
+           set title = #{title},
+               content = #{content},
+               updated_at = #{updatedAt}
+        where  id = #{id}
+    </update>
 </mapper>

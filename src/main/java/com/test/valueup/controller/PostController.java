@@ -9,6 +9,7 @@ package com.test.valueup.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -40,6 +41,41 @@ public class PostController {
 
             result.setResult("ok");
             result.setData(postList);
+        } catch (Exception e) {
+            e.printStackTrace();
+
+            result.setResult("fail");
+        }
+
+        return result;
+    }
+
+    @RequestMapping(method = RequestMethod.POST)
+    public Result insertPost(Post post) {
+        Result result = new Result();
+
+        try {
+            manager.savePost(post);
+
+            result.setResult("ok");
+        } catch (Exception e) {
+            e.printStackTrace();
+
+            result.setResult("fail");
+        }
+
+        return result;
+    }
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    public Result getPost(@PathVariable(value = "id") Long id) {
+        Result result = new Result();
+
+        try {
+            Post post = manager.getPost(id);
+
+            result.setResult("ok");
+            result.setData(post);
         } catch (Exception e) {
             e.printStackTrace();
 
