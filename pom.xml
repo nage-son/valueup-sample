@@ -112,6 +112,20 @@
 		                    <charset>UTF-8</charset>
 		                </configuration>
 		            </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-war-plugin</artifactId>
+                        <version>2.6</version>
+                        <executions>
+                            <execution>
+                                <id>default-war</id>
+                                <phase>prepare-package</phase>
+                                <configuration>
+                                    <failOnMissingWebXml>false</failOnMissingWebXml>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
 		        </plugins>
 		    </build>
 		</profile>
