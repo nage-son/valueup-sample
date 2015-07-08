@@ -35,7 +35,7 @@ public class DatabaseConfiguration implements TransactionManagementConfigurer {
         BasicDataSource dataSource = new BasicDataSource();
 
         dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-        dataSource.setUrl("jdbc:mysql://localhost:3306/valueup_test?autoReconnect=true&characterEncoding=utf8&useUnicode=true");
+        dataSource.setUrl("jdbc:mysql://localhost:3306/valueup_test?autoReconnect=true&characterEncoding=utf8");
         dataSource.setUsername("valueup");
         dataSource.setPassword("1111");
 
