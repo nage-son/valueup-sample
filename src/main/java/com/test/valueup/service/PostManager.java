@@ -40,7 +40,11 @@ public class PostManager {
         }
     }
 
-    public Post getPost(Long id) {
-        return dao.getPost(id);
+    public Post getPost(Long postId) {
+        return dao.getPost(postId);
+    }
+
+    public void deletePost(Long postId) {
+        dao.deletePost(postId);
     }
 }

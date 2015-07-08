@@ -36,7 +36,7 @@
                created_at,
                updated_at
         from   post
-        where  id = #{id}
+        where  id = #{postId}
     </select>
 
     <update id="updatePost">
@@ -46,4 +46,10 @@
                updated_at = #{updatedAt}
         where  id = #{id}
     </update>
+
+    <delete id="deletePost">
+        delete
+        from   post
+        where  id = #{postId}
+    </delete>
 </mapper>

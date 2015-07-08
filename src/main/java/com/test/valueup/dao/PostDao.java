@@ -31,11 +31,11 @@ public interface PostDao {
     /**
      * Get detail of post.
      *
-     * @param id post sequence
+     * @param postId post sequence
      *
      * @return post
      */
-    Post getPost(Long id);
+    Post getPost(Long postId);
 
     /**
      * Add post
@@ -49,5 +49,14 @@ public interface PostDao {
      *
      * @param post post
      */
-    void updatePost(Post post);
+    Integer updatePost(Post post);
+
+    /**
+     * Delete post
+     *
+     * @param postId post sequence
+     *
+     * @return deleted row count
+     */
+    Integer deletePost(Long postId);
 }

@@ -10,6 +10,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -51,7 +52,7 @@ public class PostController {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public Result insertPost(Post post) {
+    public Result insertPost(@RequestBody Post post) {
         Result result = new Result();
 
         try {
@@ -67,15 +68,51 @@ public class PostController {
         return result;
     }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public Result getPost(@PathVariable(value = "id") Long id) {
+    @RequestMapping(value = "/{postId}", method = RequestMethod.GET)
+    public Result getPost(@PathVariable(value = "postId") Long postId) {
         Result result = new Result();
 
         try {
-            Post post = manager.getPost(id);
+            Post post = manager.getPost(postId);
 
             result.setResult("ok");
             result.setData(post);
+        } catch (Exception e) {
+            e.printStackTrace();
+
+            result.setResult("fail");
+        }
+
+        return result;
+    }
+
+    @RequestMapping(value = "/{postId}", method = RequestMethod.PUT)
+    public Result updatePost(@RequestBody Post post, @PathVariable(value = "postId") Long postId) {
+        Result result = new Result();
+
+        try {
+            if (!postId.equals(post.getId())) {
+                throw new Exception("Invalid access!");
+            }
+
+            manager.savePost(post);
+            result.setResult("ok");
+        } catch (Exception e) {
+            e.printStackTrace();
+
+            result.setResult("fail");
+        }
+
+        return result;
+    }
+
+    @RequestMapping(value = "/{postId}", method = RequestMethod.DELETE)
+    public Result deletePost(@PathVariable(value = "postId") Long postId) {
+        Result result = new Result();
+
+        try {
+            manager.deletePost(postId);
+            result.setResult("ok");
         } catch (Exception e) {
             e.printStackTrace();
 
