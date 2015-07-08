@@ -12,7 +12,8 @@
     </resultMap>
     <select id="getPostList" resultMap="listResultMap">
         select id,
-               title
+               title,
+               created_at
         from   post
         order by id desc
     </select>
