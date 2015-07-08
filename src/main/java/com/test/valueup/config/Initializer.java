@@ -39,7 +39,6 @@ public class Initializer implements WebApplicationInitializer {
                                                                            new CharacterEncodingFilter());
 
         registration.setInitParameter("encoding", "UTF-8");
-        registration.setInitParameter("forceEncoding", "true");
-        registration.addMappingForServletNames(null, true, "/*");
+        registration.addMappingForUrlPatterns(null, true, "/*");
     }
 }
