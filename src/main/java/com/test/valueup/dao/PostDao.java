@@ -15,6 +15,8 @@ import com.test.valueup.dto.Post;
 /**
  * PostDao
  *
+ * Post data access object.
+ *
  * @author JoonHo Son
  * @version 1.0.0 2015. 07. 06
  * @since 1.0.0

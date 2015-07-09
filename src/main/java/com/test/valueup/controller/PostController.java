@@ -21,6 +21,8 @@ import com.test.valueup.service.PostManager;
 
 /**
  * PostController
+ * <p/>
+ * Post controller.
  *
  * @author JoonHo Son
  * @version 1.0.0 2015. 07. 06
@@ -29,9 +31,19 @@ import com.test.valueup.service.PostManager;
 @RestController("postController")
 @RequestMapping(value = "/post")
 public class PostController {
+    /**
+     * Post manager
+     *
+     * @see PostManager
+     */
     @Autowired
     private PostManager manager;
 
+    /**
+     * 포스트 목록 조회
+     *
+     * @return 포스트 목록
+     */
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public Result getPostList() {
         List<Post> postList;
@@ -51,6 +63,13 @@ public class PostController {
         return result;
     }
 
+    /**
+     * 포스트 등록
+     *
+     * @param post 포스트
+     *
+     * @return 처리 결과
+     */
     @RequestMapping(method = RequestMethod.POST)
     public Result insertPost(@RequestBody Post post) {
         Result result = new Result();
@@ -68,6 +87,13 @@ public class PostController {
         return result;
     }
 
+    /**
+     * 포스트 상세 조회
+     *
+     * @param postId 포스트 시퀀스
+     *
+     * @return 처리 결과
+     */
     @RequestMapping(value = "/{postId}", method = RequestMethod.GET)
     public Result getPost(@PathVariable(value = "postId") Long postId) {
         Result result = new Result();
@@ -86,6 +112,14 @@ public class PostController {
         return result;
     }
 
+    /**
+     * 포스트 수정
+     *
+     * @param post   포스트
+     * @param postId 포스트 시퀀스
+     *
+     * @return 처리 결과
+     */
     @RequestMapping(value = "/{postId}", method = RequestMethod.PUT)
     public Result updatePost(@RequestBody Post post, @PathVariable(value = "postId") Long postId) {
         Result result = new Result();
@@ -106,6 +140,13 @@ public class PostController {
         return result;
     }
 
+    /**
+     * 포스트 삭제
+     *
+     * @param postId 포스트 시퀀스
+     *
+     * @return 처리 결과
+     */
     @RequestMapping(value = "/{postId}", method = RequestMethod.DELETE)
     public Result deletePost(@PathVariable(value = "postId") Long postId) {
         Result result = new Result();
