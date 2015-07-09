@@ -14,7 +14,7 @@
                content,
                created_at
         from   comment
-        where  post_id = #{id}
+        where  post_id = #{postId}
     </select>
 
     <insert id="insertComment" parameterType="com.test.valueup.dto.Comment">
@@ -28,4 +28,10 @@
             now()
         )
     </insert>
+
+    <delete id="deleteComment">
+        delete
+        from   comment
+        where  id = #{id}
+    </delete>
 </mapper>

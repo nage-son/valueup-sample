@@ -24,9 +24,10 @@ public interface CommentDao {
     /**
      * Get comment list.
      *
+     * @param postId post sequence
      * @return comment list by post
      */
-    List<Comment> getCommentList();
+    List<Comment> getCommentList(Long postId);
 
     /**
      * Add comment
@@ -34,4 +35,11 @@ public interface CommentDao {
      * @param comment comment
      */
     void insertComment(Comment comment);
+
+    /**
+     * Delete comment
+     * @param id comment sequence
+     * @return
+     */
+    Integer deleteComment(Long id);
 }
