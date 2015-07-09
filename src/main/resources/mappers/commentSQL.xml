@@ -32,6 +32,6 @@
     <delete id="deleteComment">
         delete
         from   comment
-        where  id = #{id}
+        where  id = #{commentId}
     </delete>
 </mapper>

@@ -9,6 +9,7 @@ package com.test.valueup.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -62,6 +63,22 @@ public class CommentController {
             List<Comment> commentList = manager.getCommentList(postId);
 
             result.setData(commentList);
+            result.setResult("ok");
+        } catch (Exception e) {
+            e.printStackTrace();
+
+            result.setResult("fail");
+        }
+
+        return result;
+    }
+
+    @RequestMapping(value = "/{commentId}", method = RequestMethod.DELETE)
+    public Result deleteComment(@PathVariable(value = "commentId") Long commentId) {
+        Result result = new Result();
+
+        try {
+            manager.deleteComment(commentId);
             result.setResult("ok");
         } catch (Exception e) {
             e.printStackTrace();

@@ -36,4 +36,8 @@ public class CommentManager {
         // insert comment
         dao.insertComment(comment);
     }
+
+    public void deleteComment(Long commentId) {
+        dao.deleteComment(commentId);
+    }
 }

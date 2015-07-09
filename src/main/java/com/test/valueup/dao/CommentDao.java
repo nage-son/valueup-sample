@@ -38,8 +38,8 @@ public interface CommentDao {
 
     /**
      * Delete comment
-     * @param id comment sequence
+     * @param commentId comment sequence
      * @return
      */
-    Integer deleteComment(Long id);
+    Integer deleteComment(Long commentId);
 }
