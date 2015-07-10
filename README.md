@@ -6,6 +6,9 @@
 - Maven 3+
 - MariaDB(MySQL)
 
+## Google compute engine
+VM Instance 생성은 강의시간에 설명합니다.
+
 ## DB 생성
 `git clone`을 이용하여 clone한 후 프로젝트 폴더에서 다음의 명령어로 DB 생성, 권한 부여 및 테이블을 생성합니다.
 
