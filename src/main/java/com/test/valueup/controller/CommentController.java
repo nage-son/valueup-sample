@@ -22,6 +22,8 @@ import com.test.valueup.service.CommentManager;
 
 /**
  * CommentController
+ * <p/>
+ * Comment controller.
  *
  * @author JoonHo Son
  * @version 1.0.0 2015. 07. 09
@@ -38,6 +40,13 @@ public class CommentController {
     @Autowired
     private CommentManager manager;
 
+    /**
+     * 댓글 저장
+     *
+     * @param comment 댓글
+     *
+     * @return 처리 결과
+     */
     @RequestMapping(method = RequestMethod.POST)
     public Result insertComment(@RequestBody Comment comment) {
         Result result = new Result();
@@ -55,6 +64,13 @@ public class CommentController {
         return result;
     }
 
+    /**
+     * 댓글 목록 조회
+     *
+     * @param postId 포스트 시퀀스
+     *
+     * @return 댓글 목록
+     */
     @RequestMapping(method = RequestMethod.GET)
     public Result getCommentList(@RequestParam(value = "postId") Long postId) {
         Result result = new Result();
@@ -73,6 +89,13 @@ public class CommentController {
         return result;
     }
 
+    /**
+     * 댓글 삭제
+     *
+     * @param commentId 댓글 시퀀스
+     *
+     * @return 처리 결과
+     */
     @RequestMapping(value = "/{commentId}", method = RequestMethod.DELETE)
     public Result deleteComment(@PathVariable(value = "commentId") Long commentId) {
         Result result = new Result();
