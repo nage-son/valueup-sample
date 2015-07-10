@@ -50,7 +50,7 @@ $ sudo cp -R ./apache-maven-3.3.3/* /opt/dev/maven
 
 #### Windows
 ##### M2_HOME 변수 등록
-![압축해제](https://docs.google.com/uc?id=0B02RRVY3KrmeRUtXYV9mcTNYWlk)
+![압축해제](https://docs.google.com/uc?id=0B02RRVY3KrmeRUY0cTZKaW4xbmM)
 
 ##### PATH 반영
 ![PATH 설정](https://docs.google.com/uc?id=0B02RRVY3KrmedEdiUXhaMlJvak0)
